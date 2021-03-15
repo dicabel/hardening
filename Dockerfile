@@ -12,12 +12,13 @@ RUN apt-get update -qq >/dev/null && apt-get install -y -qq apache2 php7.3 -qq >
 WORKDIR /var/www/html
 COPY . /var/www/html/
 RUN mkdir /var/www/html/vacio
+COPY /public_html/.htaccess /var/www/html/vacio
 
 # The PHP app is going to save its state in /data so we make a /data inside the container
 RUN mkdir /data && chown -R www-data /data && chmod 755 /data & chmod 777 -R /var/www/html/
 
 # we need custom php configuration file to enable userdirs
-#COPY php.conf /etc/apache2/mods-available/php7.3.conf
+COPY php.conf /etc/apache2/mods-available/php7.3.conf
 
 # enable userdir and php
 RUN a2enmod php7.3
