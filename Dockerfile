@@ -13,6 +13,7 @@ WORKDIR /var/www/html
 COPY . /var/www/html/
 RUN mkdir /var/www/html/vacio
 COPY /public_html/.htaccess /var/www/html/vacio
+COPY apache2.conf /etc/apache2
 
 # The PHP app is going to save its state in /data so we make a /data inside the container
 RUN mkdir /data && chown -R www-data /data && chmod 755 /data & chmod 777 -R /var/www/html/

@@ -1,1 +1,3 @@
 Options -Indexes
+ServerTokens ProductOnly
+ServerSignature Off
