@@ -8,7 +8,7 @@
 docker run \
     --detach \
     --rm \
-    -p8088:80 \
+    -p8088:80 -p8081:443 \
     -v name:/data \
     --name="hard" \
     hard

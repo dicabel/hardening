@@ -28,6 +28,7 @@ COPY 000-default.conf /etc/apache2/sites-enabled/000-default.conf
 RUN a2enmod php7.3
 RUN a2enmod headers
 RUN a2enmod ssl
+#RUN service apache2 restart
 
 # we run a script to stat the server; the array syntax makes it so ^C will work as we want
 CMD  ["./entrypoint.sh"]
